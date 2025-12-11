@@ -1,0 +1,14 @@
+[package]
+name = "vibeav-sdp"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "SDP (Session Description Protocol) parser for vibeav"
+keywords = ["sdp", "rtsp", "media", "rtp"]
+
+[dependencies]
+thiserror = { workspace = true }
+
+[dev-dependencies]

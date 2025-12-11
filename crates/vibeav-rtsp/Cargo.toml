@@ -1,0 +1,21 @@
+[package]
+name = "vibeav-rtsp"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "RTSP client and server for vibeav"
+keywords = ["rtsp", "streaming", "rtp", "media"]
+
+[dependencies]
+vibeav-rtp = { path = "../vibeav-rtp" }
+vibeav-sdp = { path = "../vibeav-sdp" }
+vibeav-core = { path = "../vibeav-core" }
+bytes = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+thiserror = { workspace = true }
+
+[dev-dependencies]
+tokio-test = "0.4"
