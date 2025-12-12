@@ -1,0 +1,12 @@
+[package]
+name = "vibeav-rtp"
+version.workspace = true
+edition.workspace = true
+description = "RTP/RTCP packet parsing for vibeav"
+
+[dependencies]
+bytes = { workspace = true }
+thiserror = { workspace = true }
+
+[dev-dependencies]
+# Tests will go in separate files

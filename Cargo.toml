@@ -1,0 +1,79 @@
+[package]
+name = "vibeav"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "vibeav: high-performance AV router, mux, and streaming server"
+keywords = ["rtsp", "srt", "webrtc", "media", "streaming"]
+categories = ["multimedia", "network-programming"]
+publish = false
+
+# This crate is the main executable
+[dependencies]
+vibeav-core = { path = "crates/vibeav-core" }
+vibeav-rtsp = { path = "crates/vibeav-rtsp" }
+vibeav-srt = { path = "crates/vibeav-srt" }
+vibeav-webrtc = { path = "crates/vibeav-webrtc" }
+vibeav-hls = { path = "crates/vibeav-hls" }
+vibeav-rtmp = { path = "crates/vibeav-rtmp" }
+vibeav-mpegts = { path = "crates/vibeav-mpegts" }
+vibeav-quic = { path = "crates/vibeav-quic" }
+
+tokio = { workspace = true }
+tracing = { workspace = true }
+anyhow = { workspace = true }
+
+[workspace]
+members = [
+  "crates/vibeav-core",
+  "crates/vibeav-codecs",
+  "crates/vibeav-rtp",
+  "crates/vibeav-sdp",
+  "crates/vibeav-rtsp",
+  "crates/vibeav-srt",
+  "crates/vibeav-webrtc",
+  "crates/vibeav-hls",
+  "crates/vibeav-rtmp",
+  "crates/vibeav-mpegts",
+  "crates/vibeav-llhls",
+  "crates/vibeav-rist",
+  "crates/vibeav-flv",
+  "crates/vibeav-websocket",
+  "crates/vibeav-quic",
+  "crates/vibeav-sip",
+  "crates/vibeav-dvb",
+  "crates/vibeav-atsc",
+  "crates/vibeav-zixi",
+  "crates/vibeav-server",
+  "crates/vibeav-client",
+]
+
+exclude = ["docs"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+authors = ["Brennen"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/your/vibeav"
+
+[workspace.dependencies]
+tokio = { version = "1", features = ["full"] }
+bytes = "1"
+anyhow = "1"
+thiserror = "1"
+tracing = "0.1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[profile.dev]
+opt-level = 1
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = "symbols"

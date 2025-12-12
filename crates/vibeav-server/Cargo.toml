@@ -1,0 +1,17 @@
+[package]
+name = "vibeav-server"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "vibeav"
+path = "src/main.rs"
+
+[dependencies]
+vibeav-core = { path = "../vibeav-core" }
+vibeav-rtsp = { path = "../vibeav-rtsp" }
+tokio = { workspace = true, features = ["full"] }
+tracing = { workspace = true }
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+bytes = { workspace = true }
+base64 = "0.22"
